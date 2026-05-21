@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Product</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create Product</h1>
+        <nav><a href="index.html">Back to Home</a></nav>
+    </header>
+
+    <main>
+        <form id="product-form" onsubmit="createProduct(event)">
+            <label for="product-name">Product Name</label>
+            <input id="product-name" name="name" type="text" required>
+
+            <label for="product-price">Price</label>
+            <input id="product-price" name="price" type="number" step="0.01" required>
+
+            <label for="product-category">Category</label>
+            <input id="product-category" name="category" type="text">
+
+            <label for="product-image">Image URL</label>
+            <input id="product-image" name="image" type="url">
+
+            <label for="product-desc">Description</label>
+            <textarea id="product-desc" name="description" rows="4"></textarea>
+
+            <button type="submit">Create Product</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

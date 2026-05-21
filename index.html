@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Your Online Shopping Destination</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1>ShopHub</h1>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search for products...">
+                        <button>Search</button>
+                    </div>
+                    <div class="header-icons">
+                        <div class="icon-item">
+                            <span>❤️</span>
+                            <p>Wishlist</p>
+                        </div>
+                        <div class="icon-item">
+                            <span>👤</span>
+                            <p>Account</p>
+                        </div>
+                        <div class="icon-item cart">
+                            <span>🛒</span>
+                            <p>Cart</p>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="#electronics">Electronics</a></li>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#home">Home & Garden</a></li>
+                    <li><a href="#sports">Sports & Outdoors</a></li>
+                    <li><a href="#books">Books & Media</a></li>
+                    <li><a href="#deals">Special Deals</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Summer Collection 2024</h2>
+            <p>Discover amazing deals on your favorite products</p>
+            <button class="btn btn-primary">Shop Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="hero-placeholder">🛍️</div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" id="electronics">
+                    <div class="category-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <p>2,540 products</p>
+                </div>
+                <div class="category-card" id="fashion">
+                    <div class="category-icon">👗</div>
+                    <h3>Fashion</h3>
+                    <p>5,320 products</p>
+                </div>
+                <div class="category-card" id="home">
+                    <div class="category-icon">🏠</div>
+                    <h3>Home & Garden</h3>
+                    <p>3,850 products</p>
+                </div>
+                <div class="category-card" id="sports">
+                    <div class="category-icon">⚽</div>
+                    <h3>Sports & Outdoors</h3>
+                    <p>2,120 products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <a href="#" class="view-all">View All →</a>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">📷</div>
+                    <div class="product-info">
+                        <h3>Wireless Headphones</h3>
+                        <p class="category-tag">Electronics</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="review-count">(428)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="original-price">$199.99</span>
+                            <span class="sale-price">$149.99</span>
+                            <span class="discount">-25%</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👜</div>
+                    <div class="product-info">
+                        <h3>Designer Handbag</h3>
+                        <p class="category-tag">Fashion</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="review-count">(356)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="sale-price">$89.99</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <div class="product-info">
+                        <h3>Smart Watch</h3>
+                        <p class="category-tag">Electronics</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="review-count">(512)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="original-price">$299.99</span>
+                            <span class="sale-price">$199.99</span>
+                            <span class="discount">-33%</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎧</div>
+                    <div class="product-info">
+                        <h3>Gaming Mouse</h3>
+                        <p class="category-tag">Electronics</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="review-count">(278)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="original-price">$79.99</span>
+                            <span class="sale-price">$49.99</span>
+                            <span class="discount">-38%</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👕</div>
+                    <div class="product-info">
+                        <h3>Cotton T-Shirt</h3>
+                        <p class="category-tag">Fashion</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="review-count">(645)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="original-price">$34.99</span>
+                            <span class="sale-price">$19.99</span>
+                            <span class="discount">-43%</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🏃</div>
+                    <div class="product-info">
+                        <h3>Running Shoes</h3>
+                        <p class="category-tag">Sports</p>
+                        <div class="rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="review-count">(834)</span>
+                        </div>
+                        <div class="price-section">
+                            <span class="original-price">$129.99</span>
+                            <span class="sale-price">$89.99</span>
+                            <span class="discount">-31%</span>
+                        </div>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <h2>Flash Sale Today!</h2>
+                <p>Get up to 50% off on selected items</p>
+                <div class="countdown">
+                    <div class="timer-item">
+                        <span id="hours">12</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="timer-item">
+                        <span id="minutes">34</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="timer-item">
+                        <span id="seconds">56</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Shop Sale</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>On orders over $50</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure transactions</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📞</div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive deals and updates delivered to your inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ShopHub</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">📘 Facebook</a>
+                        <a href="#">🐦 Twitter</a>
+                        <a href="#">📷 Instagram</a>
+                        <a href="#">▶️ YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
