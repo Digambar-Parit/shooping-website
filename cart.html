@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+        .cart-title {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            color: #222;
+            text-align: center;
+        }
+        .cart-list {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cart-list th, .cart-list td {
+            padding: 14px 10px;
+            text-align: left;
+        }
+        .cart-list th {
+            background: #f7f7f7;
+            color: #333;
+        }
+        .cart-list tr {
+            border-bottom: 1px solid #eee;
+        }
+        .cart-list img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .cart-summary {
+            margin-top: 32px;
+            text-align: right;
+        }
+        .cart-summary span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .empty-cart {
+            text-align: center;
+            color: #888;
+            font-size: 1.2rem;
+            margin: 40px 0;
+        }
+        .remove-btn {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .remove-btn:hover {
+            background: #e63946;
+        }
+        .checkout-btn {
+            background: #4ECDC4;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: background 0.2s;
+        }
+        .checkout-btn:hover {
+            background: #38b2ac;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1><a href="index.html" style="text-decoration:none;color:inherit;">ShopHub</a></h1>
+                    </div>
+                    <div class="header-icons">
+                        <div class="icon-item cart">
+                            <span>🛒</span>
+                            <p>Cart</p>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="cart-container">
+        <div class="cart-title">Your Shopping Cart</div>
+        <div id="cart-content"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartContent = document.getElementById('cart-content');
+            if (cart.length === 0) {
+                cartContent.innerHTML = '<div class="empty-cart">Your cart is empty.</div>';
+                return;
+            }
+            let total = 0;
+            let html = `<table class='cart-list'>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+            cart.forEach((item, idx) => {
+                total += item.price * item.qty;
+                html += `<tr>
+                    <td><span style="font-size:2rem;">${item.image || '🛒'}</span></td>
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.qty}</td>
+                    <td><button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button></td>
+                </tr>`;
+            });
+            html += `</tbody></table>`;
+            html += `<div class="cart-summary">Total: <span>$${total.toFixed(2)}</span><br><button class="checkout-btn">Checkout</button></div>`;
+            cartContent.innerHTML = html;
+        }
+        function removeFromCart(idx) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.splice(idx, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+        renderCart();
+    </script>
+</body>
+</html>

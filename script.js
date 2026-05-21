@@ -3,14 +3,43 @@ let cartCount = 0;
 
 document.querySelectorAll('.btn-add-cart').forEach(button => {
     button.addEventListener('click', function() {
-        cartCount++;
+        // Find product info
+        const productCard = this.closest('.product-card');
+        const name = productCard.querySelector('h3').textContent;
+        const priceSection = productCard.querySelector('.price-section');
+        let price = 0;
+        if (priceSection) {
+            const sale = priceSection.querySelector('.sale-price');
+            const orig = priceSection.querySelector('.original-price');
+            if (sale) {
+                price = parseFloat(sale.textContent.replace(/[^\d.]/g, ''));
+            } else if (orig) {
+                price = parseFloat(orig.textContent.replace(/[^\d.]/g, ''));
+            }
+        } else {
+            // Fallback: try to find price in button's parent
+            const sale = productCard.querySelector('.sale-price');
+            if (sale) price = parseFloat(sale.textContent.replace(/[^\d.]/g, ''));
+        }
+        const image = productCard.querySelector('.product-image')?.textContent || '';
+
+        // Add to cart in localStorage
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const existing = cart.find(item => item.name === name && item.price === price);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ name, price, image, qty: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+
         updateCartCount();
-        
+
         // Show feedback
         const originalText = this.textContent;
         this.textContent = 'Added! ✓';
         this.style.backgroundColor = '#4ECDC4';
-        
+
         setTimeout(() => {
             this.textContent = originalText;
             this.style.backgroundColor = '';
@@ -19,8 +48,14 @@ document.querySelectorAll('.btn-add-cart').forEach(button => {
 });
 
 function updateCartCount() {
-    document.querySelector('.cart-count').textContent = cartCount;
+    // Count total items in cart
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let count = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
 }
+
+// On page load, sync cart count
+updateCartCount();
 
 // Countdown timer
 function updateCountdown() {
